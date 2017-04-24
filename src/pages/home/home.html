@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar >
+    <button ion-button menuToggle >
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Category</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+
+  <ion-card (click)="findNear('restaurant')">
+    <img src="assets/img/res.jpg">
+    <div class="card-title">Restaurant</div>
+  </ion-card>
+
+  <ion-card (click)="findNear('hotel')">
+    <img src="assets/img/hotel.jpg">
+    <div class="card-title">Hotel</div>
+  </ion-card>
+
+  <ion-card (click)="findNear('cafe')">
+    <img src="assets/img/cafe.jpg">
+    <div class="card-title">Cafe</div>
+  </ion-card>
+
+  <ion-card (click)="findNear('bar')">
+    <img src="assets/img/bar.jpg">
+    <div class="card-title">Bar</div>
+  </ion-card>
+
+
+</ion-content>

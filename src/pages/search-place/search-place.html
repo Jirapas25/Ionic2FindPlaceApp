@@ -1,0 +1,49 @@
+
+<ion-header>
+
+  <ion-navbar >
+  	<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Near place</ion-title>
+  </ion-navbar>
+	<ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="homeSegment" (click)="updatePage(homeSegment)">
+    <ion-segment-button value="Map">
+      <ion-icon name="map" color="cBlueGray"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="List">
+      <ion-icon name="md-list" color="cBlueGray"></ion-icon>
+    </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+<div [ngSwitch]="homeSegment" style="height:100%;">
+<ion-list *ngSwitchCase="'Map'" style="height:86%;">
+<div #map id='map' style="height:100%;"></div>
+      <div id="detail">
+          <ion-item>
+            <img class="list-pic" src="assets/icon/cpic.jpg" item-left>  
+            <h4 id="name"></h4>
+            <p id="address"></p>
+           
+          </ion-item>
+      </div>
+</ion-list>
+<ion-list *ngSwitchCase="'List'">
+      <div id="wrap">
+       <ion-list>
+          <ion-item *ngFor="let item of place">
+            <img src="assets/icon/cpic.jpg" item-left class="list-pic">
+            <h4>{{ item.name }}</h4>
+            <p>{{ item.vicinity }}</p>
+          </ion-item>
+        </ion-list>
+
+      </div>
+      </ion-list>
+     </div>
+</ion-content>
