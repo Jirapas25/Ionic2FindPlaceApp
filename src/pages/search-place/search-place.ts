@@ -34,6 +34,8 @@ export class SearchPlace {
 	      geolocation.getCurrentPosition(options).then((resp) => {
 	        this.latitude = resp.coords.latitude;
 	        this.longitude = resp.coords.longitude;
+	        console.log(this.latitude);
+	        console.log(this.longitude);
 	        this.setMap();
 	      }).catch((error) => {
 	        console.log('Error getting location', error);
@@ -59,7 +61,7 @@ export class SearchPlace {
 	
 		let request = {
 	    location: this.location,
-	    radius: '1000',
+	    radius: '2000',
 	    types: [this.type]
 	  };
 	  console.log(request);
@@ -79,6 +81,7 @@ export class SearchPlace {
 		    }
 		    document.getElementById("name").innerHTML = self.place[0].name;
 		    document.getElementById("address").innerHTML = self.place[0].vicinity;
+		    self.markers[0].setIcon("assets/icon/m2.png");
 
 		  }
 		}
